@@ -71,6 +71,8 @@ epochs = 20
 
 batch_size = 256 (因为前面没有看到平台提供的GPU是什么,我没有给很大,更大可能结果会更好)
 
+BalanceClassSampler用于平衡7个类别
+
 
 
 ### 后处理
@@ -91,5 +93,5 @@ metric learning: Arcface loss learning
 
 更大的input_size: 我的实验里96x96提交能到0.67x, 224x224提交能到0.72x,所以数据存在一些非常难的样本而大部分是简单样本，如果为了极限速度可以考虑96x96.(再极限点你可以32x32.......)
 
-optimizer的选择: 尝试了over9000和Ranger
+optimizer的选择: 尝试了over9000和Ranger效果和RAdam并无很大差别.
 
