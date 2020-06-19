@@ -112,3 +112,11 @@ m11.py： MobilenetV3-small训练代码
 
 
 openvino推理代码我没存下来。。。但是非常简单！就是处理图片然后送到网络里面没有任何tricks, 后面我能拿到 我会进行补充.
+
+------
+
+MobilenetV3-small is from [mobilenetV3](https://github.com/xiaolai-sqlai/mobilenetv3)
+
+GhostNet is from [GhostNet](https://github.com/huawei-noah/ghostnet)
+
+感谢！！
