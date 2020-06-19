@@ -97,7 +97,7 @@ metric learning: Arcface loss learning
 
 optimizer的选择: 尝试了over9000和Ranger效果和RAdam并无很大差别.
 
-
+修改模型： 这太难了。。。也是我时间耗得最多的地方，但结果不好.
 
 ## 代码
 
