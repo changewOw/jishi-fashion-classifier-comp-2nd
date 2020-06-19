@@ -6,7 +6,9 @@
 
 ## 环境
 
-训练: pytorch python
+训练: pytorch python3.7
+
+​	sklearn, torch, mmcv, opencv-python, apex, efficientnet-pytorch
 
 推理:openvino c++
 
@@ -95,3 +97,18 @@ metric learning: Arcface loss learning
 
 optimizer的选择: 尝试了over9000和Ranger效果和RAdam并无很大差别.
 
+
+
+## 代码
+
+分类代码并不复杂，所以我稍微保留了一些我的注释.
+
+代码是按极市平台环境为基础写的 如果要本地运行需要修改路径
+
+e4.py :  efficientnet-b1生成自我蒸馏oof
+
+m11.py： MobilenetV3-small训练代码
+
+
+
+openvino推理代码我没存下来。。。但是非常简单！就是处理图片然后送到网络里面没有任何tricks
