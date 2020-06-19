@@ -814,6 +814,27 @@ class MobileNetV3_Small(nn.Module):
         out = self.hs2(self.bn2(self.conv2(out)))
         return out
 
+class EfficientnetZhou(nn.Module):
+    def __init__(self):
+        super().__init__()
+        n_channels_dict = {'efficientnet-b0': 1280, 'efficientnet-b1': 1280, 'efficientnet-b2': 1408,
+                           'efficientnet-b3': 1536, 'efficientnet-b4': 1792, 'efficientnet-b5': 2048,
+                           'efficientnet-b6': 2304, 'efficientnet-b7': 2560}
+        self.net = EfficientNet.from_pretrained('efficientnet-b1')
+        self.avg_pool = nn.AdaptiveAvgPool2d(1)
+        out_shape = n_channels_dict['efficientnet-b1']
+
+        self.classifier = nn.Sequential(
+            Flatten(),
+            SEBlock(out_shape),
+            nn.Linear(out_shape, config.num_classes)
+        )
+    def forward(self, x):
+        x = self.net.extract_features(x)
+        x = self.avg_pool(x)
+        x = self.classifier(x)
+
+        return x
 
 class MobileNetZhou(nn.Module):
     def __init__(self, num_classes, pool_type="avg", multi_sample=False, export=False):
